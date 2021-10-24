@@ -1,8 +1,13 @@
-import React from "react";
+import React from 'react';
+import Header from '../Components/Header';
 
 function Profile() {
   return (
-    <div>Profile</div>
+    <div>
+      <header>
+        <Header title="Perfil" searchButton={false} />
+      </header>
+    </div>
   );
 }
 

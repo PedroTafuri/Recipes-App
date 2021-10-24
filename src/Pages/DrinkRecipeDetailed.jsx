@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 function DrinkRecipeDetailed() {
   return (
-    <div>DrinkRecipeDetailed</div>
+    <div>DrinkRecipeDetailed sem header</div>
   );
 }
 

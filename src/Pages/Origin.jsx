@@ -1,8 +1,13 @@
-import React from "react";
+import React from 'react';
+import Header from '../Components/Header';
 
 function Origin() {
   return (
-    <div>Origin</div>
+    <div>
+      <header>
+        <Header title="Origem" searchButton />
+      </header>
+    </div>
   );
 }
 
