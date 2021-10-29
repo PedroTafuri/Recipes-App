@@ -8,33 +8,41 @@ function Provider({ children }) {
   const [loading, setLoading] = useState(false);
 
   const requestFoodFromAPI = async (type, inputValue) => {
-    // try {
-    setLoading(true);
-    let response = '';
-    if (type === 'ingredientes') {
-      response = await (await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${inputValue}`)).json();
+    try {
+      setLoading(true);
+      let response = '';
+      if (type === 'ingredientes') {
+        response = await (await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${inputValue}`)).json();
+      }
+      if (type === 'nome') {
+        response = await (await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`)).json();
+      }
+      setMeal(response.meals);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setMeal([]);
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
     }
-    if (type === 'nome') {
-      response = await (await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`)).json();
-    }
-    setMeal(response.meals);
-    setLoading(false);
-    // } catch (error) {
-    //   return global.alert('Não encontrado');
-    // }
   };
 
   const requestDrinkFromAPI = async (type, inputValue) => {
-    setLoading(true);
-    let response = '';
-    if (type === 'ingredientes') {
-      response = await (await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${inputValue}`)).json();
+    try {
+      setLoading(true);
+      let response = '';
+      if (type === 'ingredientes') {
+        response = await (await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${inputValue}`)).json();
+      }
+      if (type === 'nome') {
+        response = await (await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValue}`)).json();
+      }
+      setDrink(response.drinks);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setDrink([]);
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
     }
-    if (type === 'nome') {
-      response = await (await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValue}`)).json();
-    }
-    setDrink(response.drinks);
-    setLoading(false);
   };
 
   const context = {

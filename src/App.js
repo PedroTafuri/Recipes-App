@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -31,16 +32,16 @@ function App() {
         <Route path="/explorar/comidas" component={FoodExplorer} />
         <Route path="/explorar/bebidas" component={DrinkExplorer} />
         <Route path="/explorar" component={Explorer} />
-        <Route path="/comidas/:id-da-receita/in-progress" component={FoodRecipeInProgress} />
-        <Route path="/bebidas/:id-da-receita/in-progress" component={DrinkRecipeInProgress} />
-        <Route path="/comidas/:id-da-receita" component={FoodRecipeDetailed} />
-        <Route path="/bebidas/:id-da-receita" component={DrinkRecipeDetailed} />
-        <Route path="/comidas" component={FoodRecipes} />
-        <Route path="/bebidas" component={DrinkRecipes} />
+        <Route path="/comidas/:idReceita/in-progress" component={FoodRecipeInProgress} />
+        <Route path="/bebidas/:idReceita/in-progress" component={DrinkRecipeInProgress} />
+        <Route path="/comidas/:idReceita" component={FoodRecipeDetailed} />
+        <Route path="/bebidas/:idReceita" component={DrinkRecipeDetailed} />
+        <Route exact path="/comidas" component={FoodRecipes} />
+        <Route exact path="/bebidas" component={DrinkRecipes} />
         <Route exact path="/" component={Login} />
       </Switch>
     </div>
   );
-}
+} 
 
 export default App;
