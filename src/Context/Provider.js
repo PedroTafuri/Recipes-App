@@ -3,11 +3,17 @@ import propTypes from 'prop-types';
 import Context from './Context';
 
 function Provider({ children }) {
-  const [meal, setMeal] = useState([]);
-  const [drink, setDrink] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [meal, setMeal] = useState([]); // Variável que recebe o retorno da API de comida
+  const [drink, setDrink] = useState([]); // Variável que recebe o retorno da API de bebida
+  const [loading, setLoading] = useState(false); // Faz o set de carregamento enquanto a API carrega
+  const [
+    filterCategories,
+    setFilterCategories,
+  ] = useState([]); // Variável que recebe as opções secundárias de filtro
+  const [categorySelected, setCategorySelected] = useState(true);
+  const [detailedSelectedRecipe, setDetailedSelectedRecipe] = useState('');
 
-  const requestFoodFromAPI = async (type, inputValue) => {
+  const requestFoodFromAPI = async (type, inputValue) => { // API de comidas
     try {
       setLoading(true);
       let response = '';
@@ -26,7 +32,7 @@ function Provider({ children }) {
     }
   };
 
-  const requestDrinkFromAPI = async (type, inputValue) => {
+  const requestDrinkFromAPI = async (type, inputValue) => { // API de bebidas
     try {
       setLoading(true);
       let response = '';
@@ -45,6 +51,23 @@ function Provider({ children }) {
     }
   };
 
+  const requestCategoriesFromAPI = async (title) => {
+    let response = null;
+    if (title === 'Comidas') {
+      response = await (await fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list')).json();
+      setFilterCategories(response.meals);
+    }
+    if (title === 'Bebidas') {
+      response = await (await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list')).json();
+      setFilterCategories(response.drinks);
+    }
+  };
+
+  const getSelectedMeal = async (id) => {
+    const response = await (await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)).json();
+    setDetailedSelectedRecipe(response.meals[0]);
+  };
+
   const context = {
     requestFoodFromAPI,
     meal,
@@ -52,6 +75,12 @@ function Provider({ children }) {
     drink,
     setMeal,
     loading,
+    filterCategories,
+    requestCategoriesFromAPI,
+    categorySelected,
+    setCategorySelected,
+    detailedSelectedRecipe,
+    getSelectedMeal,
   };
 
   return (

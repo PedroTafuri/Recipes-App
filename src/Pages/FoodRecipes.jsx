@@ -9,6 +9,7 @@ function FoodRecipes({ history }) {
   const {
     meal,
     loading,
+    categorySelected,
   } = useContext(Context);
 
   function renderingFoodListOrItem() {
@@ -18,12 +19,14 @@ function FoodRecipes({ history }) {
     if (meal.length === 1) {
       return history.push(`/comidas/${meal[0].idMeal}`);
     }
-    return (meal.map((mealItem) => (
-      <Link to={`/comidas/${mealItem.idMeal}`} key={mealItem.idMeal}>
-        <p>{mealItem.strMeal}</p>
-        <img src={mealItem.strMealThumb} alt={mealItem.strMeal} />
-      </Link>
-    )));
+    return (meal
+      .filter((item) => (categorySelected ? true : item.strCategory === categorySelected))
+      .map((mealItem) => (
+        <Link to={`/comidas/${mealItem.idMeal}`} key={mealItem.idMeal}>
+          <p>{mealItem.strMeal}</p>
+          <img src={mealItem.strMealThumb} alt={mealItem.strMeal} />
+        </Link>
+      )));
   }
 
   return (
