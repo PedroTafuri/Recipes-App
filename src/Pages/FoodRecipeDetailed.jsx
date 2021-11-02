@@ -16,12 +16,15 @@ function FoodRecipeDetailed() {
     if (item.length === 14) return item[item.length - 1];
     return (`${item[item.length - 2]}${item[item.length - 1]}`);
   };
+
   const handleYouTubeLink = (link) => {
     const linkSplited = link.split('https://www.youtube.com/watch?v=');
     const newLink = `https://www.youtube.com/embed/${linkSplited[1]}`;
     return newLink;
   };
+
   const breakLinesFromInstructions = (info) => info.split('\r\n');
+
   return (
     <div>
       <img src={detailedSelectedRecipe.strMealThumb} alt={detailedSelectedRecipe.strMeal} />

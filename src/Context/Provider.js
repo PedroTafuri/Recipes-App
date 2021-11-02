@@ -10,8 +10,9 @@ function Provider({ children }) {
     filterCategories,
     setFilterCategories,
   ] = useState([]); // Variável que recebe as opções secundárias de filtro
-  const [categorySelected, setCategorySelected] = useState(true);
-  const [detailedSelectedRecipe, setDetailedSelectedRecipe] = useState('');
+  const [categorySelected, setCategorySelected] = useState(true); // Pega as categorias e renderiza
+  const [detailedSelectedRecipe, setDetailedSelectedRecipe] = useState(''); // Recebe os detalhes da receita de comida selecionada
+  const [detailedSelectedDrink, setDetailedSelectedDrink] = useState(''); // Recebe os detalhes da receita de bebida selecionada
 
   const requestFoodFromAPI = async (type, inputValue) => { // API de comidas
     try {
@@ -68,6 +69,11 @@ function Provider({ children }) {
     setDetailedSelectedRecipe(response.meals[0]);
   };
 
+  const getSelectedDrink = async (id) => {
+    const response = await (await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)).json();
+    setDetailedSelectedDrink(response.drinks[0]);
+  };
+
   const context = {
     requestFoodFromAPI,
     meal,
@@ -81,6 +87,8 @@ function Provider({ children }) {
     setCategorySelected,
     detailedSelectedRecipe,
     getSelectedMeal,
+    detailedSelectedDrink,
+    getSelectedDrink,
   };
 
   return (
