@@ -1,7 +1,8 @@
-// /* eslint-disable */
+/* eslint-disable */
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react/cjs/react.development';
+import Footer from '../Components/Footer';
 import Context from '../Context/Context';
 
 function FoodRecipeDetailed() {
@@ -16,15 +17,12 @@ function FoodRecipeDetailed() {
     if (item.length === 14) return item[item.length - 1];
     return (`${item[item.length - 2]}${item[item.length - 1]}`);
   };
-
-  const handleYouTubeLink = (link) => {
+  const handleYouTubeLink = (link) => {    
+    {console.log(detailedSelectedRecipe.strYoutube)}
     const linkSplited = link.split('https://www.youtube.com/watch?v=');
-    const newLink = `https://www.youtube.com/embed/${linkSplited[1]}`;
-    return newLink;
-  };
-
-  const breakLinesFromInstructions = (info) => info.split('\r\n');
-
+      const newLink = `https://www.youtube.com/embed/${linkSplited[1]}`;
+      return newLink;
+    };
   return (
     <div>
       <img src={detailedSelectedRecipe.strMealThumb} alt={detailedSelectedRecipe.strMeal} />
@@ -40,11 +38,11 @@ function FoodRecipeDetailed() {
           ))}
       </ul>
       <h2>Instruções</h2>
-      {breakLinesFromInstructions(detailedSelectedRecipe.strInstructions)
-        .map((line) => <p>{line}</p>)}
+      <p>{(detailedSelectedRecipe.strInstructions)}</p>
       <h2>Vídeo</h2>
-      <iframe src={handleYouTubeLink(detailedSelectedRecipe.strYoutube)} title={detailedSelectedRecipe.strMeal} width="560" height="315" />
+      {/* <iframe src={handleYouTubeLink(detailedSelectedRecipe.strYoutube)} title={detailedSelectedRecipe.strMeal} width="560" height="315" /> */}
       <button type="button">Iniciar</button>
+      <Footer />
     </div>
   );
 }

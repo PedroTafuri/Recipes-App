@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
-import Footer from '../Components/Footer';
 
 function Explorer() {
   return (
@@ -13,7 +12,6 @@ function Explorer() {
         <Link to="/comidas"><button type="button">Comidas</button></Link>
         <Link to="/bebidas"><button type="button">Bebidas</button></Link>
       </nav>
-      <Footer />
     </div>
   );
 }

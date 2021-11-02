@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react/cjs/react.development';
+import Footer from '../Components/Footer';
 import Context from '../Context/Context';
 
 function DrinkRecipeDetailed() {
@@ -16,8 +17,6 @@ function DrinkRecipeDetailed() {
     if (item.length === 14) return item[item.length - 1];
     return (`${item[item.length - 2]}${item[item.length - 1]}`);
   };
-
-  // const breakLinesFromInstructions = (info) => (info.contains('r') ? info.split('\r\n') : info);
 
   // const handleYouTubeLink = (link) => {
   //   if (link.contains('https://www.youtube.com/watch?v=')) {
@@ -44,11 +43,10 @@ function DrinkRecipeDetailed() {
       </ul>
       <h2>Instruções</h2>
       <p>{detailedSelectedDrink.strInstructions}</p>
-      {/* {breakLinesFromInstructions(detailedSelectedDrink.strInstructions)
-        .map((line) => <p>{line}</p>)} */}
-      {/* <h2>Vídeo</h2>
-      <iframe src={handleYouTubeLink(detailedSelectedDrink.strVideo)} title={detailedSelectedDrink.strMeal} width="560" height="315" /> */}
+      <h2>Vídeo</h2>
+      {/* <iframe src={handleYouTubeLink(detailedSelectedDrink.strVideo)} title={detailedSelectedDrink.strMeal} width="560" height="315" /> */}
       <button type="button">Iniciar</button>
+      <Footer />
     </div>
   );
 }
