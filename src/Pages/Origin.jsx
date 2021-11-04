@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 
 function Origin() {
@@ -7,6 +8,7 @@ function Origin() {
       <header>
         <Header title="Origem" searchButton />
       </header>
+      <Footer />
     </div>
   );
 }

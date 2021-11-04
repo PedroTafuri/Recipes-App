@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 
 function Profile() {
@@ -7,6 +8,7 @@ function Profile() {
       <header>
         <Header title="Perfil" searchButton={false} />
       </header>
+      <Footer />
     </div>
   );
 }

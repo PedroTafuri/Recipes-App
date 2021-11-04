@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 
 function DrinkExplorer() {
@@ -7,6 +8,7 @@ function DrinkExplorer() {
       <header>
         <Header title="Explorar Bebidas" searchButton />
       </header>
+      <Footer />
     </div>
   );
 }
