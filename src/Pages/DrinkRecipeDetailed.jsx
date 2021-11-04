@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react/cjs/react.development';
@@ -44,7 +43,9 @@ function DrinkRecipeDetailed() {
       <h2>Instruções</h2>
       <p>{detailedSelectedDrink.strInstructions}</p>
       <h2>Vídeo</h2>
-      {/* <iframe src={handleYouTubeLink(detailedSelectedDrink.strVideo)} title={detailedSelectedDrink.strMeal} width="560" height="315" /> */}
+      {/* <iframe
+      src={handleYouTubeLink(detailedSelectedDrink.strVideo)}
+      title={detailedSelectedDrink.strDrink} width="560" height="315" /> */}
       <button type="button">Iniciar</button>
       <Footer />
     </div>

@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import Header from '../Components/Header';
 import Context from '../Context/Context';
 import Footer from '../Components/Footer';
+import ControlledCarouselForFood from '../Components/ControlledCarouselForFood';
 
 function FoodRecipes({ history }) {
   const {
     meal,
     loading,
-    categorySelected,
   } = useContext(Context);
 
   function renderingFoodListOrItem() {
@@ -19,14 +18,7 @@ function FoodRecipes({ history }) {
     if (meal.length === 1) {
       return history.push(`/comidas/${meal[0].idMeal}`);
     }
-    return (meal
-      .filter((item) => (categorySelected ? true : item.strCategory === categorySelected))
-      .map((mealItem) => (
-        <Link to={`/comidas/${mealItem.idMeal}`} key={mealItem.idMeal}>
-          <p>{mealItem.strMeal}</p>
-          <img src={mealItem.strMealThumb} alt={mealItem.strMeal} />
-        </Link>
-      )));
+    return <ControlledCarouselForFood />;
   }
 
   return (

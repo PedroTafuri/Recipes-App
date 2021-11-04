@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
 import Context from '../Context/Context';
 import Footer from '../Components/Footer';
+import ControlledCarouselForDrink from '../Components/ControlledCarouselForDrink';
 
 function DrinkRecipes({ history }) {
   const {
@@ -18,12 +18,7 @@ function DrinkRecipes({ history }) {
     if (drink.length === 1) {
       return history.push(`/bebidas/${drink[0].idDrink}`);
     }
-    return (drink.map((drinkItem) => (
-      <Link to={`/bebidas/${drinkItem.idDrink}`} key={drinkItem.idDrink}>
-        <p>{drinkItem.strDrink}</p>
-        <img src={drinkItem.strDrinkThumb} alt={drinkItem.strDrink} />
-      </Link>
-    )));
+    return <ControlledCarouselForDrink />;
   }
 
   return (

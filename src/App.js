@@ -18,6 +18,7 @@ import Origin from './Pages/Origin';
 import Profile from './Pages/Profile';
 import DoneRecipes from './Pages/DoneRecipes';
 import FavoriteRecipes from './Pages/FavoriteRecipes';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
