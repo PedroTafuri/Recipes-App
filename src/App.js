@@ -18,7 +18,6 @@ import Origin from './Pages/Origin';
 import Profile from './Pages/Profile';
 import DoneRecipes from './Pages/DoneRecipes';
 import FavoriteRecipes from './Pages/FavoriteRecipes';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -33,8 +32,8 @@ function App() {
         <Route path="/explorar/comidas" component={FoodExplorer} />
         <Route path="/explorar/bebidas" component={DrinkExplorer} />
         <Route path="/explorar" component={Explorer} />
-        <Route path="/comidas/:idReceita/in-progress" component={FoodRecipeInProgress} />
-        <Route path="/bebidas/:idReceita/in-progress" component={DrinkRecipeInProgress} />
+        <Route path="/comidas/:idReceita/progress" component={FoodRecipeInProgress} />
+        <Route path="/bebidas/:idReceita/progress" component={DrinkRecipeInProgress} />
         <Route path="/comidas/:idReceita" component={FoodRecipeDetailed} />
         <Route path="/bebidas/:idReceita" component={DrinkRecipeDetailed} />
         <Route exact path="/comidas" component={FoodRecipes} />
