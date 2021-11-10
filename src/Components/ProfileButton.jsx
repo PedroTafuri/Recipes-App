@@ -3,7 +3,7 @@ import 'boxicons';
 
 function ProfileButton() {
   return (
-    <box-icon name="user" />
+    <box-icon color="white" size="md" name="user" />
   );
 }
 

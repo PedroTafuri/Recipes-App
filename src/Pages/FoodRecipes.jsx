@@ -4,6 +4,7 @@ import Header from '../Components/Header';
 import Context from '../Context/Context';
 import Footer from '../Components/Footer';
 import ControlledCarouselForFood from '../Components/ControlledCarouselForFood';
+import '../CSS/food-recipes.css';
 
 function FoodRecipes({ history }) {
   const {
@@ -22,10 +23,8 @@ function FoodRecipes({ history }) {
   }
 
   return (
-    <div>
-      <header>
-        <Header title="Comidas" searchButton />
-      </header>
+    <div id="food-recipes-main-div">
+      <Header title="Comidas" searchButton />
       {loading ? 'Loading...' : renderingFoodListOrItem()}
       <Footer />
     </div>

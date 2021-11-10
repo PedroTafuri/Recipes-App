@@ -66,9 +66,15 @@ form .text-field{
   background: #2691d9;
 }
 
-.text-field input:focus ~ label{
-top: -5px;
-color: #2691d9
+.text-field input:focus ~ label,
+.text-field input:valid ~ label{
+  top: -5px;
+  color: #2691d9
+}
+
+#teste{
+  top: -5px;
+  color: #2691d9
 }
 
 button {

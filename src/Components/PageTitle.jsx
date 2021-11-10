@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 
 function PageTitle({ title }) {
   return (
-    <div>{ title }</div>
+    <h1>{ title }</h1>
   );
 }
 
