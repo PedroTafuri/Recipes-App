@@ -1,0 +1,16 @@
+#explorer-main-div {
+  height: 100vh;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+  background-color: white;
+  padding: 30px;
+}
+
+button {
+  font-size: 26px;
+}
+

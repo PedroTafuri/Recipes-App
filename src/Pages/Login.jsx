@@ -1,5 +1,7 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
+import '../CSS/login.css';
 
 function Login({ history }) {
   const [disableButton, setDisableButton] = useState(true);
@@ -26,15 +28,19 @@ function Login({ history }) {
   }, [userEmail, userPassword]);
 
   return (
-    <div>
+    <div id="login-main-div">
       <h1>Login</h1>
-      <form action="">
-        <label htmlFor="email">
-          <input value={userEmail} onChange={(e) => setUserEmail(e.target.value)} type="email" placeholder="Email" />
-        </label>
-        <label htmlFor="password">
-          <input value={userPassword} onChange={(e) => setUserPassword(e.target.value)} type="password" placeholder="Senha" />
-        </label>
+      <form id="user-info" action="">
+        <div className="text-field">
+          <input value={userEmail} onChange={(e) => setUserEmail(e.target.value)} type="text" />
+          <span></span>
+          <label htmlFor="email">Email</label>
+        </div>
+        <div className="text-field">
+          <input value={userPassword} onChange={(e) => setUserPassword(e.target.value)} type="password" />
+          <span></span>
+          <label htmlFor="password">Senha</label>
+        </div>
         <button onClick={submitActions} disabled={disableButton} type="button">  Entrar</button>
       </form>
     </div>

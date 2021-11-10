@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react/cjs/react.development';
 import Footer from '../Components/Footer';
+import ShareAndFavRecepes from '../Components/ShareAndFavRecipes';
 import Context from '../Context/Context';
 
 function DrinkRecipeDetailed() {
@@ -30,6 +31,7 @@ function DrinkRecipeDetailed() {
     <div>
       <img src={detailedSelectedDrink.strDrinkThumb} alt={detailedSelectedDrink.strDrink} />
       <h1>{detailedSelectedDrink.strDrink}</h1>
+      <ShareAndFavRecepes />
       <h3>{detailedSelectedDrink.strCategory}</h3>
       <h2>Ingredientes</h2>
       <ul>
@@ -46,7 +48,7 @@ function DrinkRecipeDetailed() {
       {/* <iframe
       src={handleYouTubeLink(detailedSelectedDrink.strVideo)}
       title={detailedSelectedDrink.strDrink} width="560" height="315" /> */}
-      <button type="button">Iniciar</button>
+      <Link to={`/bebidas/${idReceita}/progress`}><button type="button">Iniciar</button></Link>
       <Footer />
     </div>
   );

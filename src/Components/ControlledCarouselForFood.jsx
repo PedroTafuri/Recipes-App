@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel, CarouselItem } from 'react-bootstrap';
 import Context from '../Context/Context';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ControlledCarouselForFood() {
   const {

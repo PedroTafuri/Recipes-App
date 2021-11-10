@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext, useEffect } from 'react/cjs/react.development';
 import propTypes from 'prop-types';
 import Context from '../Context/Context';
+import '../CSS/filter-categories.css';
 
 export default function FilterCategories({ title }) {
   const {
@@ -13,7 +14,7 @@ export default function FilterCategories({ title }) {
     requestCategoriesFromAPI(title);
   }, []);
   return (
-    <ul>
+    <ul id="filter-categories-main-div">
       <li><button onClick={setCategorySelected(true)} type="button">Todas</button></li>
       {filterCategories.map((category) => (
         <li key={category.strCategory}>

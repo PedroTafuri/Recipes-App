@@ -1,0 +1,8 @@
+#filter-categories-main-div {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-content: space-between;
+  width: 100%;
+}
