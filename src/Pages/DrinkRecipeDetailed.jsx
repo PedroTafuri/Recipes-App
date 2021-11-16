@@ -4,6 +4,7 @@ import { useEffect } from 'react/cjs/react.development';
 import Footer from '../Components/Footer';
 import ShareAndFavRecepes from '../Components/ShareAndFavRecipes';
 import Context from '../Context/Context';
+import '../CSS/drink-recipe-detailed.css';
 
 function DrinkRecipeDetailed() {
   const { idReceita } = useParams();
@@ -29,26 +30,30 @@ function DrinkRecipeDetailed() {
 
   return (
     <div>
-      <img src={detailedSelectedDrink.strDrinkThumb} alt={detailedSelectedDrink.strDrink} />
-      <h1>{detailedSelectedDrink.strDrink}</h1>
-      <ShareAndFavRecepes />
-      <h3>{detailedSelectedDrink.strCategory}</h3>
-      <h2>Ingredientes</h2>
-      <ul>
-        {Object.keys(detailedSelectedDrink)
-          .filter((item) => item.includes('strIngredient'))
-          .map((item) => (
-            detailedSelectedDrink[item] && (
-            <li key={getIngredientNumber(item)}>{`${detailedSelectedDrink[item]} - ${detailedSelectedDrink[`strMeasure${getIngredientNumber(item)}`]}`}</li>)
-          ))}
-      </ul>
-      <h2>Instruções</h2>
-      <p>{detailedSelectedDrink.strInstructions}</p>
-      <h2>Vídeo</h2>
-      {/* <iframe
-      src={handleYouTubeLink(detailedSelectedDrink.strVideo)}
-      title={detailedSelectedDrink.strDrink} width="560" height="315" /> */}
-      <Link to={`/bebidas/${idReceita}/progress`}><button type="button">Iniciar</button></Link>
+      <div id="drink-recipe-detailed-main-div">
+        <img src={detailedSelectedDrink.strDrinkThumb} alt={detailedSelectedDrink.strDrink} />
+        <div id="recipe-name-and-buttons">
+          <h1>{detailedSelectedDrink.strDrink}</h1>
+          <ShareAndFavRecepes />
+        </div>
+        <h3>{detailedSelectedDrink.strCategory}</h3>
+        <h2>Ingredientes</h2>
+        <ul>
+          {Object.keys(detailedSelectedDrink)
+            .filter((item) => item.includes('strIngredient'))
+            .map((item) => (
+              detailedSelectedDrink[item] && (
+              <li key={getIngredientNumber(item)}>{`${detailedSelectedDrink[item]} - ${detailedSelectedDrink[`strMeasure${getIngredientNumber(item)}`]}`}</li>)
+            ))}
+        </ul>
+        <h2>Instruções</h2>
+        <p>{detailedSelectedDrink.strInstructions}</p>
+        <h2>Vídeo</h2>
+        {/* <iframe
+        src={handleYouTubeLink(detailedSelectedDrink.strVideo)}
+        title={detailedSelectedDrink.strDrink} width="560" height="315" /> */}
+        <Link to={`/bebidas/${idReceita}/progress`}><button type="button">Iniciar</button></Link>
+      </div>
       <Footer />
     </div>
   );

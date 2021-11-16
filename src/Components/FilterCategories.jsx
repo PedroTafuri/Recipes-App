@@ -15,10 +15,10 @@ export default function FilterCategories({ title }) {
   }, []);
   return (
     <ul id="filter-categories-main-div">
-      <li><button onClick={setCategorySelected(true)} type="button">Todas</button></li>
+      <li><button className="button" onClick={setCategorySelected(true)} type="button">Todas</button></li>
       {filterCategories.map((category) => (
         <li key={category.strCategory}>
-          <button onClick={(e) => setCategorySelected(e.target.innertext)} value={category.strCategory} type="button">{category.strCategory}</button>
+          <button className="button" onClick={(e) => setCategorySelected(e.target.innertext)} value={category.strCategory} type="button">{category.strCategory}</button>
         </li>
       ))}
     </ul>

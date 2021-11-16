@@ -1,6 +1,8 @@
+/* eslint-disable */ 
 import React, { useContext, useState } from 'react';
 import propTypes from 'prop-types';
 import Context from '../Context/Context';
+import '../CSS/search-bar.css';
 
 function SearchBar({ title }) {
   const { requestFoodFromAPI, requestDrinkFromAPI } = useContext(Context);
@@ -13,18 +15,18 @@ function SearchBar({ title }) {
   };
 
   return (
-    <form action="ingredients">
-      <label htmlFor="searchBar">
-        <input type="text" onChange={(e) => setSearchText(e.target.value)} placeholder="Digite aqui" />
-      </label>
-      <label htmlFor="ingredients">
-        Ingredientes
-        <input name="typeOfSearch" onClick={(e) => setTypeOfSearch(e.target.value)} value="ingredientes" checked id="ingredients" type="radio" />
-      </label>
-      <label htmlFor="name">
-        Nome
-        <input name="typeOfSearch" onClick={(e) => setTypeOfSearch(e.target.value)} value="nome" id="name" type="radio" />
-      </label>
+    <form >
+      <div id="text-field" >
+        <input type="text" onChange={(e) => setSearchText(e.target.value)} />
+        <span />
+        <label htmlFor="searchBar">Digite aqui</label>
+      </div>
+      <div className="radio-toolbar">
+        <input type="radio" id="ingredients" name="typeOfSearch" value="ingredientes" checked onClick={(e) => setTypeOfSearch(e.target.value)} />
+        <label for="ingredients">Ingredientes</label>
+        <input type="radio" id="name" name="typeOfSearch" value="nome" onClick={(e) => setTypeOfSearch(e.target.value)}/>
+        <label for="name">Nome</label>
+      </div>
       <button onClick={async () => requestAPI()} type="button">Buscar</button>
     </form>
   );

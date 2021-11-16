@@ -10,7 +10,6 @@ body{
   padding: 0;
   background: linear-gradient(120deg,#2980b9, #8e44ad);
   height: 100vh;
-  overflow: hidden;
 }
 #login-main-div {
   position: absolute;
@@ -68,11 +67,6 @@ form .text-field{
 
 .text-field input:focus ~ label,
 .text-field input:valid ~ label{
-  top: -5px;
-  color: #2691d9
-}
-
-#teste{
   top: -5px;
   color: #2691d9
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import '../CSS/page-title.css';
 
 function PageTitle({ title }) {
   return (

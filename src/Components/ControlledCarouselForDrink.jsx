@@ -3,20 +3,21 @@ import { Link } from 'react-router-dom';
 import { Carousel, CarouselItem } from 'react-bootstrap';
 import Context from '../Context/Context';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../CSS/controlled-carousel-for-drink.css';
 
 function ControlledCarouselForDrink() {
   const {
     drink,
   } = useContext(Context);
   return (
-    <div>
+    <div id="controlled-carousel-for-drink">
       <Carousel>
         {drink
           .map((drinkItem) => (
             <CarouselItem>
               <Link to={`/bebidas/${drinkItem.idDrink}`} key={drinkItem.idDrink}>
-                <img src={drinkItem.strDrinkThumb} alt={drinkItem.strDrink} />
-                <p>{drinkItem.strDrink}</p>
+                <img className="d-block w-100" src={drinkItem.strDrinkThumb} alt={drinkItem.strDrink} />
+                <Carousel.Caption><p>{drinkItem.strDrink}</p></Carousel.Caption>
               </Link>
             </CarouselItem>
           ))}

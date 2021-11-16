@@ -1,31 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import 'boxicons';
-import propTypes from 'prop-types';
-import SearchBar from './SearchBar';
-import FilterCategories from './FilterCategories';
 import '../CSS/search-button.css';
+import Context from '../Context/Context';
 
-function SearchButton({ title }) {
-  const [showSearchBar, setShowSearchBar] = useState(false);
+function SearchButton() {
+  const { showSearchBar, setShowSearchBar } = useContext(Context);
 
-  function toggleSearchOptions() {
-    if (showSearchBar) {
-      return <SearchBar title={title} />;
-    }
-    return <FilterCategories title={title} />;
-  }
   return (
-    <div id="search-button-main-div">
-      <button type="button" onClick={() => setShowSearchBar(!showSearchBar)}>
-        <box-icon color="white" name="search-alt-2" />
-      </button>
-      {toggleSearchOptions()}
-    </div>
+    <button id="search-button-main-div" type="button" onClick={() => setShowSearchBar(!showSearchBar)}>
+      <box-icon color="white" size="md" name="search-alt-2" />
+    </button>
   );
 }
-
-SearchButton.propTypes = {
-  title: propTypes.string.isRequired,
-};
 
 export default SearchButton;
