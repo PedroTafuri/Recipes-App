@@ -35,8 +35,25 @@ function DrinkRecipes({ history }) {
   return (
     <div id="drink-recipes-main-div">
       <Header title="Bebidas" searchButton />
-      <div id="search-option">{toggleSearchOptions()}</div>
-      {loading ? ('Loading...') : renderingDrinkListOrItem()}
+      {!loading && <div id="search-option">{toggleSearchOptions()}</div>}
+      {loading
+        ? (// Loading retirado do site https://loading.io/css/
+          <div className="lds-spinner">
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        )
+        : renderingDrinkListOrItem()}
       <Footer />
     </div>
   );

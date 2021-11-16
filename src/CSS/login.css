@@ -32,7 +32,6 @@ body{
 }
 form .text-field{
   position: relative;
-  border-bottom: 2px solid #adadad;
   margin: 30px 0;
 }
 .text-field input{

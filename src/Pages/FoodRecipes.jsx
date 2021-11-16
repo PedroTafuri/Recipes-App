@@ -37,8 +37,25 @@ function FoodRecipes({ history }) {
   return (
     <div id="food-recipes-main-div">
       <Header title="Comidas" searchButton />
-      <div id="search-option">{toggleSearchOptions()}</div>
-      {loading ? <div id="loading-div" /> : renderingFoodListOrItem()}
+      {!loading && <div id="search-option">{toggleSearchOptions()}</div>}
+      {loading
+        ? (// Loading retirado do site https://loading.io/css/
+          <div className="lds-spinner">
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        )
+        : renderingFoodListOrItem()}
       <Footer />
     </div>
   );
