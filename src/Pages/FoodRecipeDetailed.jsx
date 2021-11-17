@@ -18,12 +18,14 @@ function FoodRecipeDetailed() {
     if (item.length === 14) return item[item.length - 1];
     return (`${item[item.length - 2]}${item[item.length - 1]}`);
   };
+
   // const handleYouTubeLink = (link) => {
   //   {console.log(detailedSelectedRecipe.strYoutube)}
   //   const linkSplited = link.split('https://www.youtube.com/watch?v=');
   //     const newLink = `https://www.youtube.com/embed/${linkSplited[1]}`;
   //     return newLink;
   //   };
+
   return (
     <div>
       <div id="food-recipe-detailed-main-div">
@@ -33,7 +35,7 @@ function FoodRecipeDetailed() {
           <ShareAndFavRecepes />
         </div>
         <h3>{detailedSelectedRecipe.strCategory}</h3>
-        <h2>Ingredientes</h2>
+        <h2 id="h2">Ingredientes</h2>
         <ul>
           {Object.keys(detailedSelectedRecipe)
             .filter((item) => item.includes('strIngredient'))
@@ -42,9 +44,9 @@ function FoodRecipeDetailed() {
               <li key={getIngredientNumber(item)}>{`${detailedSelectedRecipe[item]} - ${detailedSelectedRecipe[`strMeasure${getIngredientNumber(item)}`]}`}</li>)
             ))}
         </ul>
-        <h2>Instruções</h2>
+        <h2 id="h2">Instruções</h2>
         <p>{(detailedSelectedRecipe.strInstructions)}</p>
-        <h2>Vídeo</h2>
+        <h2 id="h2">Vídeo</h2>
         {/* <iframe
         src={handleYouTubeLink(detailedSelectedRecipe.strYoutube)}
         title={detailedSelectedRecipe.strMeal} width="560" height="315" /> */}

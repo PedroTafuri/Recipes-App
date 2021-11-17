@@ -8,20 +8,36 @@ import '../CSS/share-and-fav-recipes.css';
 function ShareAndFavRecipes() {
   const [like, setLike] = useState(false);
   const [showSpan, setShowSpan] = useState(false);
-  const { detailedSelectedRecipe } = useContext(Context);
+  const { detailedSelectedRecipe, detailedSelectedDrink } = useContext(Context);
   const { idReceita } = useParams();
+
+  const getRecipesInformation = () => {
+    // Verifica se a receita é de bebida ou comida, se for bebida retorna false se for comida true
+    if ((window.location.href).split('/')[3] === 'comida') {
+      return {
+        id: detailedSelectedRecipe.idMeal,
+        type: 'comida',
+        area: detailedSelectedRecipe.strArea,
+        category: detailedSelectedRecipe.strCategory,
+        name: detailedSelectedRecipe.strMeal,
+        image: detailedSelectedRecipe.strMealThumb,
+      };
+    }
+    return {
+      id: detailedSelectedDrink.idDrink,
+      type: 'bebida',
+      area: detailedSelectedDrink.strAlcoholic, // Na API de bebida não tem area
+      category: detailedSelectedDrink.strCategory,
+      name: detailedSelectedDrink.strDrink,
+      image: detailedSelectedDrink.strDrinkThumb,
+    };
+  };
 
   const saveFavRecipes = () => {
     if (!like) {
       setLike(true);
       const favoritesRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) ? JSON.parse(localStorage.getItem('favoriteRecipes')) : '';
-      const updateFavoritesRecipes = [...favoritesRecipes, {
-        id: detailedSelectedRecipe.idMeal,
-        area: detailedSelectedRecipe.strArea,
-        category: detailedSelectedRecipe.strCategory,
-        name: detailedSelectedRecipe.strMeal,
-        image: detailedSelectedRecipe.strMealThumb,
-      }];
+      const updateFavoritesRecipes = [...favoritesRecipes, getRecipesInformation()];
       localStorage.setItem('favoriteRecipes', JSON.stringify(updateFavoritesRecipes));
     } else {
       setLike(false);
@@ -36,6 +52,7 @@ function ShareAndFavRecipes() {
   };
 
   useEffect(() => {
+    console.log((window.location.href).split('/')[3] === 'bebidas');
     checkingIfIsFavorite();
   }, []);
 
