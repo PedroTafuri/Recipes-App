@@ -11,9 +11,13 @@
   padding: 0;
 }
 
-li {
+
+#filter-categories-main-div li:nth-child(n+2) {
   width: 160px;
   
+}
+#button-all {
+  width: 340px;
 }
 
 .button {

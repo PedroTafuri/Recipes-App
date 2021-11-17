@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { useState } from 'react/cjs/react.development';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react/cjs/react.development';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Context from '../Context/Context';
 import '../CSS/share-and-fav-recipes.css';
@@ -8,28 +9,35 @@ function ShareAndFavRecipes() {
   const [like, setLike] = useState(false);
   const [showSpan, setShowSpan] = useState(false);
   const { detailedSelectedRecipe } = useContext(Context);
+  const { idReceita } = useParams();
 
   const saveFavRecipes = () => {
     if (!like) {
       setLike(true);
-      localStorage.setItem('favoriteRecipes', JSON.stringify[{
+      const favoritesRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) ? JSON.parse(localStorage.getItem('favoriteRecipes')) : '';
+      const updateFavoritesRecipes = [...favoritesRecipes, {
         id: detailedSelectedRecipe.idMeal,
         area: detailedSelectedRecipe.strArea,
         category: detailedSelectedRecipe.strCategory,
         name: detailedSelectedRecipe.strMeal,
         image: detailedSelectedRecipe.strMealThumb,
-      }]);
+      }];
+      localStorage.setItem('favoriteRecipes', JSON.stringify(updateFavoritesRecipes));
     } else {
       setLike(false);
-      // localStorage.setItem("favoriteRecipes", [{
-      //   id: detailedSelectedRecipe.idMeal,
-      //   area: detailedSelectedRecipe.strArea,
-      //   category: detailedSelectedRecipe.strCategory,
-      //   name: detailedSelectedRecipe.strMeal,
-      //   image: detailedSelectedRecipe.strMealThumb,
-      // }]);
+      const removingRecipe = JSON.parse(localStorage.getItem('favoriteRecipes'))
+        .filter((item) => item.id !== detailedSelectedRecipe.idMeal);
+      localStorage.setItem('favoriteRecipes', JSON.stringify(removingRecipe));
     }
   };
+
+  const checkingIfIsFavorite = () => {
+    if (JSON.parse(localStorage.getItem('favoriteRecipes')).some((item) => item.id === idReceita)) setLike(true);
+  };
+
+  useEffect(() => {
+    checkingIfIsFavorite();
+  }, []);
 
   const copyMessenge = () => {
     setShowSpan(true);

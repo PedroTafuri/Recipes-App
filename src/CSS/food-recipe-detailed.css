@@ -1,0 +1,47 @@
+#food-recipe-detailed-main-div {
+  background-color: white;
+}
+
+#food-recipe-detailed-main-div h1{
+  margin: 0;
+  max-width: 275px;
+  font-size: 2.8vmax;
+}
+
+img {
+  width: 100%;
+  height: 375px;
+}
+
+#recipe-name-and-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding-left: 10px;
+}
+
+#food-recipe-detailed-main-div h3 {
+  color: gray;
+  font-size:medium;
+  padding: 0 10px;
+}
+
+h2, p {
+  padding: 0 10px;
+  background-color: white;
+}
+
+#h2 {
+  font-size: 2.6vmax;
+  font-weight: bold;
+}
+
+ul li {
+  width: 100%;
+}
+
+li {
+  list-style:none;
+}

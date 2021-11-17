@@ -1,8 +1,8 @@
-#drink-recipe-detailed-main-div {
+#food-recipe-in-progress-main-div {
   background-color: white;
 }
 
-#drink-recipe-detailed-main-div h1{
+#food-recipe-in-progress-main-div h1{
   margin: 0;
   max-width: 275px;
   font-size: 2.8vmax;
@@ -22,7 +22,7 @@ img {
   padding-left: 10px;
 }
 
-#drink-recipe-detailed-main-div h3 {
+#food-recipe-in-progress-main-div h3 {
   color: gray;
   font-size:medium;
   padding: 0 10px;
@@ -38,10 +38,6 @@ h2, p {
   font-weight: bold;
 }
 
-ul li {
-  width: 100%;
-}
-
-li {
-  list-style:none;
+.list-itens input:checked + label {
+  text-decoration: line-through;
 }

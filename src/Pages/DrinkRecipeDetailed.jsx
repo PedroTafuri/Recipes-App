@@ -37,7 +37,7 @@ function DrinkRecipeDetailed() {
           <ShareAndFavRecepes />
         </div>
         <h3>{detailedSelectedDrink.strCategory}</h3>
-        <h2>Ingredientes</h2>
+        <h2 id="h2">Ingredientes</h2>
         <ul>
           {Object.keys(detailedSelectedDrink)
             .filter((item) => item.includes('strIngredient'))
@@ -46,9 +46,9 @@ function DrinkRecipeDetailed() {
               <li key={getIngredientNumber(item)}>{`${detailedSelectedDrink[item]} - ${detailedSelectedDrink[`strMeasure${getIngredientNumber(item)}`]}`}</li>)
             ))}
         </ul>
-        <h2>Instruções</h2>
+        <h2 id="h2">Instruções</h2>
         <p>{detailedSelectedDrink.strInstructions}</p>
-        <h2>Vídeo</h2>
+        <h2 id="h2">Vídeo</h2>
         {/* <iframe
         src={handleYouTubeLink(detailedSelectedDrink.strVideo)}
         title={detailedSelectedDrink.strDrink} width="560" height="315" /> */}
