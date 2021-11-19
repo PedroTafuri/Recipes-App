@@ -13,10 +13,10 @@ function ShareAndFavRecipes() {
 
   const getRecipesInformation = () => {
     // Verifica se a receita é de bebida ou comida, se for bebida retorna false se for comida true
-    if ((window.location.href).split('/')[3] === 'comida') {
+    if ((window.location.href).split('/')[3] === 'comidas') {
       return {
         id: detailedSelectedRecipe.idMeal,
-        type: 'comida',
+        type: 'comidas',
         area: detailedSelectedRecipe.strArea,
         category: detailedSelectedRecipe.strCategory,
         name: detailedSelectedRecipe.strMeal,
@@ -25,7 +25,7 @@ function ShareAndFavRecipes() {
     }
     return {
       id: detailedSelectedDrink.idDrink,
-      type: 'bebida',
+      type: 'bebidas',
       area: detailedSelectedDrink.strAlcoholic, // Na API de bebida não tem area
       category: detailedSelectedDrink.strCategory,
       name: detailedSelectedDrink.strDrink,
@@ -42,17 +42,16 @@ function ShareAndFavRecipes() {
     } else {
       setLike(false);
       const removingRecipe = JSON.parse(localStorage.getItem('favoriteRecipes'))
-        .filter((item) => item.id !== detailedSelectedRecipe.idMeal);
+        .filter((item) => item.id !== ((window.location.href).split('/')[3] === 'comidas' ? detailedSelectedRecipe.idMeal : detailedSelectedDrink.idDrink));
       localStorage.setItem('favoriteRecipes', JSON.stringify(removingRecipe));
     }
   };
 
   const checkingIfIsFavorite = () => {
-    if (JSON.parse(localStorage.getItem('favoriteRecipes')).some((item) => item.id === idReceita)) setLike(true);
+    if (localStorage.getItem('favoriteRecipes') === null ? false : JSON.parse(localStorage.getItem('favoriteRecipes')).some((item) => item.id === idReceita)) setLike(true);
   };
 
   useEffect(() => {
-    console.log((window.location.href).split('/')[3] === 'bebidas');
     checkingIfIsFavorite();
   }, []);
 

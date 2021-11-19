@@ -5,3 +5,14 @@
   justify-content: space-between;
 }
 
+header, footer {
+height: 50px;
+}
+
+#email {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 100px;
+  color: #2691d9;
+  font-weight: bold;
+}

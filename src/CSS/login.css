@@ -83,3 +83,7 @@ button {
   outline: none;
   margin-bottom: 20px;
 }
+
+button:disabled {
+  opacity: 50%;
+}

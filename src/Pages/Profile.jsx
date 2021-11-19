@@ -12,9 +12,11 @@ function Profile() {
   return (
     <div id="profile-main-div">
       <Header title="Perfil" searchButton={false} />
-      <h1>{localStorage.getItem('email')}</h1>
-      <Link to="/receitas-favoritas"><button type="button">Receitas Favoritas</button></Link>
-      <Link to="/receitas-favoritas"><button onClick={() => clearLocaLStorage()} type="button">Sair</button></Link>
+      <nav>
+        <h1 id="email">{localStorage.getItem('email')}</h1>
+        <Link to="/receitas-favoritas"><button type="button">Receitas Favoritas</button></Link>
+        <Link to="/"><button onClick={() => clearLocaLStorage()} type="button">Sair</button></Link>
+      </nav>
       <Footer />
     </div>
   );

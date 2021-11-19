@@ -9,11 +9,11 @@ function Login({ history }) {
   const [userPassword, setUserPassword] = useState('');
 
   const loginValidation = () => {
-    // const regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    // const email = regex.test(String(userEmail).toLowerCase());
-    // const password = userPassword.length >= 6;
-    // setDisableButton(!(email && password));
-    setDisableButton(false);
+    const regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const email = regex.test(String(userEmail).toLowerCase());
+    const password = userPassword.length >= 6;
+    setDisableButton(!(email && password));
+    // setDisableButton(false);
   };
 
   const submitActions = () => {

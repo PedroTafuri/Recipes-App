@@ -1,11 +1,16 @@
 #explorer-main-div {
   height: 100vh;
 }
+
+header, footer {
+  height: 50px;
+}
+
 nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 80%;
+  height: calc(100% - 100px);
   background-color: white;
   padding: 30px;
 }

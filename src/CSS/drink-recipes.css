@@ -5,9 +5,13 @@
   height: 100vh;
 }
 
+header, footer {
+  height: 50px;
+}
+
 #search-option {
   background-color: white;
-  height: 100%;
+  height: calc(100% - 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -15,10 +15,8 @@ function FoodRecipes({ history }) {
     showSearchBar,
   } = useContext(Context);
 
-  // const [hideSearchOptions, setHideSearchOptions] = useState(true);
-
   function renderingFoodListOrItem() {
-    if (meal.length === 0) {
+    if (meal === null ? true : meal.length === 0) {
       return null;
     }
     if (meal.length === 1) {

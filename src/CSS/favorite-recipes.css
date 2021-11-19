@@ -1,0 +1,54 @@
+#favorite-recipes-main-container {
+height: 100%;
+}
+
+header, footer {
+  height: 50px;
+}
+
+#favorite-recipes-nav {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+  
+}
+
+button {
+  font-size: 20px;
+}
+
+h2 {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+h3 {
+  text-decoration: none;
+  color: gray;
+  padding: 0 10px;
+  font-size: 18px;
+}
+
+#favorite-recipes-central-container {
+  background-color: white;
+  min-height: 567px;
+  height: calc(100% - 100px);
+}
+
+.favorite-recipes-images {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.favorite-recipes-container {
+  border: 1px solid #F8EDED;
+  border-radius: 10px;
+  display: flex;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 10px;
+}

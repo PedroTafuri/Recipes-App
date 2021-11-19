@@ -29,7 +29,6 @@ function Provider({ children }) {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      setMeal([]);
       alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
     }
   };
@@ -48,7 +47,6 @@ function Provider({ children }) {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      setDrink([]);
       alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
     }
   };
@@ -67,6 +65,7 @@ function Provider({ children }) {
 
   const getSelectedMeal = async (id) => {
     const response = await (await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)).json();
+    console.log(`é${response.meals}`);
     setDetailedSelectedRecipe(response.meals[0]);
   };
 

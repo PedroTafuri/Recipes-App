@@ -16,7 +16,7 @@ function DrinkRecipes({ history }) {
   } = useContext(Context);
 
   function renderingDrinkListOrItem() {
-    if (drink.length === 0) {
+    if (drink === null ? true : drink.length === 0) {
       return null;
     }
     if (drink.length === 1) {
