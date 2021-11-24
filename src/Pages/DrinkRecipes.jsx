@@ -5,7 +5,7 @@ import Context from '../Context/Context';
 import Footer from '../Components/Footer';
 import ControlledCarouselForDrink from '../Components/ControlledCarouselForDrink';
 import SearchBar from '../Components/SearchBar';
-import FilterCategories from '../Components/FilterCategories';
+import RecipesList from '../Components/RecipesList';
 import '../CSS/drink-recipes.css';
 
 function DrinkRecipes({ history }) {
@@ -22,14 +22,14 @@ function DrinkRecipes({ history }) {
     if (drink.length === 1) {
       return history.push(`/bebidas/${drink[0].idDrink}`);
     }
-    return <ControlledCarouselForDrink />;
+    return showSearchBar ? <ControlledCarouselForDrink /> : null;
   }
 
   function toggleSearchOptions() {
     if (showSearchBar) {
-      return <FilterCategories title="Bebidas" />;
+      return <SearchBar title="Bebidas" />;
     }
-    return <SearchBar title="Bebidas" />;
+    return <RecipesList title="Bebidas" />;
   }
 
   return (

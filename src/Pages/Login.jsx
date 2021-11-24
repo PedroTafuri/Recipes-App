@@ -13,12 +13,9 @@ function Login({ history }) {
     const email = regex.test(String(userEmail).toLowerCase());
     const password = userPassword.length >= 6;
     setDisableButton(!(email && password));
-    // setDisableButton(false);
   };
 
   const submitActions = () => {
-    localStorage.setItem('mealsToken', '');
-    localStorage.setItem('cocktailsToken', '');
     localStorage.setItem('email', userEmail);
     history.push('/explorar');
   };

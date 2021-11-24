@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 import Header from '../Components/Header';
@@ -5,7 +6,7 @@ import Context from '../Context/Context';
 import Footer from '../Components/Footer';
 import ControlledCarouselForFood from '../Components/ControlledCarouselForFood';
 import SearchBar from '../Components/SearchBar';
-import FilterCategories from '../Components/FilterCategories';
+import RecipesList from '../Components/RecipesList';
 import '../CSS/food-recipes.css';
 
 function FoodRecipes({ history }) {
@@ -22,14 +23,14 @@ function FoodRecipes({ history }) {
     if (meal.length === 1) {
       return history.push(`/comidas/${meal[0].idMeal}`);
     }
-    return <ControlledCarouselForFood />;
+    return showSearchBar ? <ControlledCarouselForDrink /> : null;
   }
 
   function toggleSearchOptions() {
     if (showSearchBar) {
-      return <FilterCategories title="Comidas" />;
+      return <SearchBar title="Comidas" />;
     }
-    return <SearchBar title="Comidas" />;
+    return <RecipesList title="Comidas" />;
   }
 
   return (
