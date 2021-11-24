@@ -48,7 +48,7 @@ function DrinkRecipeDetailed() {
         </ul>
         <h2 id="h2">Instruções</h2>
         <p>{detailedSelectedDrink.strInstructions}</p>
-        <h2 id="h2">Vídeo</h2>
+        {/* <h2 id="h2">Vídeo</h2> */}
         {/* <iframe
         src={handleYouTubeLink(detailedSelectedDrink.strVideo)}
         title={detailedSelectedDrink.strDrink} width="560" height="315" /> */}

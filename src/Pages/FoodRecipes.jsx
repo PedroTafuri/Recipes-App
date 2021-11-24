@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 import Header from '../Components/Header';
@@ -23,7 +22,7 @@ function FoodRecipes({ history }) {
     if (meal.length === 1) {
       return history.push(`/comidas/${meal[0].idMeal}`);
     }
-    return showSearchBar ? <ControlledCarouselForDrink /> : null;
+    return showSearchBar ? <ControlledCarouselForFood /> : null;
   }
 
   function toggleSearchOptions() {
