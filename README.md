@@ -26,13 +26,13 @@ Linux e macOS:
 
 
 ## ☕ Usando Recipes App
+***O projeto foi desenvolvido com o objetivo de simular um app mobile, então para melhor visualização no navegador use as dimensões para celular***
+
 Para entrar na tele de Login basta colocar com um email no formato padrão <b>(nome@email.com)</b> e digitar uma senha qualquer com <b>6 caracteres</b>.<br>
 Feito isso é possivel escolher qual tipo receira deveja procurar (comidas ou bebidas). <br>
 Na tela de tipo de comidas é mostrado 6 receitas do tipo escolhido e é possível buscar por alguma receita usando o ingrediente desejado ou o nome da receita.<br>
 Ao escolher a receita pode compartilhar, favoritar e iniciar. Todas as receitas favoritadas podem ser acessadas na tela de perfil.<br>
 
 Veja o vídeo abaixo do projeto em funcionamento.
-
-
-
-**Colocar o GIF aqui**
+<br>
+<img src="https://user-images.githubusercontent.com/85589280/143470837-e9433a37-a2f9-4757-bf69-16b505d196c2.gif" width="250" />
