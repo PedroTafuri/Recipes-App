@@ -9,7 +9,7 @@ Para instalar o Recipes App, siga estas etapas:
 Linux e macOS:
 <ol><li>Clone o repositório</li></ol>
   <ul>
-    <li><code>git clone git@github.com:PedroTafuri/Recipes-App.git</code></li>
+    <li><code>git clone https://github.com/PedroTafuri/Recipes-App.git</code></li>
     <li>Entre na pasta do repositório que você acabou de clonar:</li>
   <ul><li><code>cd Recipes-App</code></li></ul>
   </ul>
